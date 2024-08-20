@@ -43,7 +43,7 @@ function App() {
       </div>
       <button
         onClick={() => handleClick()}
-        className=" text-black bg-slate-600 border-solid rounded-sm border-slate-950 p-2 m-5"
+        className=" text-black bg-slate-600 border-2 rounded-xl border-black p-2 m-5"
       >
         Regenerate
       </button>
