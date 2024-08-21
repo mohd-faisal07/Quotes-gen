@@ -37,7 +37,7 @@ function App() {
         Get inspired with random quotes
       </p>
       <div className=" text-center m-5 p-5 bg-[#55679C] border border-solid rounded-xl border-slate-950">
-        <p className="text-xl text-[#1E2A5E] rounded-xl border-gray-400 font-semibold italic">
+        <p className="text-xl text-[#FAFFAF] rounded-xl border-gray-400 font-semibold italic">
           &#34;{isLoading ? <Loader /> : fetched.text}&#34;
           {/* {fetched.text} */}
         </p>
