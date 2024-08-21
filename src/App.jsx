@@ -6,46 +6,51 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const apiKey = "https://stoic-quotes.com/api/quote";
 
-  const fetchQuote = useEffect(function () {
-    async function fetchget(url) {
-      try {
-        setIsLoading(true);
-        const response = await fetch(url);
-        var data = await response.json();
-        setFetched(data);
-        console.log(data);
-      } catch (error) {
-        throw new Error("error while fetching");
-      } finally {
-        setIsLoading(false);
-        console.log(isLoading);
-      }
+  async function fetchget(url) {
+    try {
+      setIsLoading(true);
+      const response = await fetch(url);
+      var data = await response.json();
+      setFetched(data);
+      console.log(data);
+    } catch (error) {
+      throw new Error("error while fetching");
+    } finally {
+      setIsLoading(false);
+      console.log(isLoading);
     }
+  }
+
+  const fetchQuote = useEffect(function () {
     fetchget(apiKey);
   }, []);
   fetchQuote;
 
-  function handleClick() {
-    window.location.reload();
+  function handleClick(e) {
+    e.preventDefault();
+    fetchget(apiKey);
   }
 
   return (
-    <div className="flex flex-col items-center justify-center bg-slate-500 h-screen">
-      <div className=" text-center m-5 p-5 bg-slate-800 border-solid rounded-xl border-slate-950">
-        <p className="text-xl text-blue-500 rounded-xl border-gray-400">
+    <div className="flex flex-col items-center justify-center bg-[#7C93C3] h-screen">
+      <p className="text-3xl font-bold font-bitter tracking-wide mb-3">
+        Get inspired with random quotes
+      </p>
+      <div className=" text-center m-5 p-5 bg-[#55679C] border border-solid rounded-xl border-slate-950">
+        <p className="text-xl text-[#1E2A5E] rounded-xl border-gray-400 font-semibold italic">
           &#34;{isLoading ? <Loader /> : fetched.text}&#34;
           {/* {fetched.text} */}
         </p>
-        <p className="text-xl text-blue-300">
+        <p className="text-base text-teal-400">
           -{isLoading ? <Loader /> : fetched.author}
           {/* -{fetched.author} */}
         </p>
       </div>
       <button
-        onClick={() => handleClick()}
-        className=" text-black bg-slate-600 border-2 rounded-xl border-black p-2 m-5"
+        onClick={(e) => handleClick(e)}
+        className=" bg-[#1E2A5E] text-blue-100 border rounded-xl border-black p-2 m-5 hover:scale-110 hover:text-teal-400 transition ease-in-out "
       >
-        Regenerate
+        Seek Another
       </button>
     </div>
   );
