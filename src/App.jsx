@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center bg-[#7C93C3] h-screen">
-      <p className="text-3xl font-bold font-bitter tracking-wide mb-3">
+      <p className="text-3xl font-bold font-bitter tracking-wide mb-3 text-center">
         Get inspired with random quotes
       </p>
       <div className=" text-center m-5 p-5 bg-[#55679C] border border-solid rounded-xl border-slate-950">
